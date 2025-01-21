@@ -1,9 +1,6 @@
 python-dotenv
 pandas
 scrapegraphai
-ollama
-langchain
 openpyxl
 beautifulsoup4
-together
 grpcio

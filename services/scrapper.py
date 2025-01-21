@@ -43,3 +43,18 @@ smart_scraper_graph = SmartScraperGraph(
 # Run the scraper
 result = smart_scraper_graph.run()
 print(result)
+
+# Convert the result to a DataFrame
+df = pd.DataFrame(result["books"])
+
+# Remove currency symbols and convert prices to float
+df['price'] = df['price'].str.replace('£', '').astype(float)
+
+# Standardize availability text
+df['availability'] = df['availability'].str.strip().str.lower()
+
+# Handle missing values if any
+df.dropna(inplace=True)
+
+# Preview the cleaned data
+print(df.head())
